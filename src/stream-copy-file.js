@@ -31,7 +31,7 @@ module.exports = function streamCopyFile(source, target, callback) {
     'use strict';
     var fs = require('fs');
     var stat = fs.statSync(source);
-    if (!(callback instanceof Function)) {
+    if (!(typeof callback === 'function')) {
         callback = function default_streamCopyFileCallback () {
             return null;
         };

@@ -45,7 +45,7 @@ module.exports = function streamCopyFile(source, target, callback) {
     }
     var readStream = fs.createReadStream(source, {
             flags: 'r',
-            encoding: 'binary',
+            encoding: null,
             fd: null,
             mode: stat.mode,
             autoClose: true
@@ -55,7 +55,7 @@ module.exports = function streamCopyFile(source, target, callback) {
     });
     var writeStream = fs.createWriteStream(target, {
             flags: 'w',
-            encoding: 'binary',
+            encoding: null,
             mode: stat.mode
         });
     writeStream.on('error', function (err) {
